@@ -1,6 +1,7 @@
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react"
 import apiService from "../api/ApiService"
 import Settings from "../types/Settings"
+import '../styles/settings.css';
 
 function SettingsPage(settings: Settings) {
     const [frequency, setFrequency] = useState('');
@@ -10,28 +11,33 @@ function SettingsPage(settings: Settings) {
     const emailList = emails.map((email: string) => <li>{email}</li>)
 
     return (
-        <div id="settings-page">
+        <div id="settings-page" className="settings-page">
             <h3>Settings Page</h3>
-            <label>
-                Frequency of sending stories to family, in days (enter 0 to never send):
-                <input name="frequency" type="number" defaultValue={settings.frequency} min="0"
-                    value={frequency}
-                    onChange={(ev) => setFrequency(ev.target.value)} />
-            </label><br />
-            <label>
-                Add new email: <input name="email" type="email"
-                    value={newEmail}
-                    onChange={(ev) => setNewEmail(ev.target.value)} />
-            </label>
-            <button onClick={() => {
-                if (newEmail) {
-                    setEmails([...emails, newEmail]);
-                    setNewEmail(''); 
-                }
-            }}>Add</button><br />
-            <label>
-                Current list of emails: <ul>{emailList}</ul>
-            </label><br />
+            <div className="settings-section">
+                <label>
+                    Frequency of sending stories to family, in days (enter 0 to never send):
+                    <input name="frequency" type="number" defaultValue={settings.frequency} min="0"
+                        value={frequency}
+                        onChange={(ev) => setFrequency(ev.target.value)} />
+                </label><br />
+            </div>
+            <div className="settings-section">
+                <label>
+                    Add new email: <input name="email" type="email"
+                        value={newEmail}
+                        onChange={(ev) => setNewEmail(ev.target.value)} />
+                </label>
+                <button onClick={() => {
+                    if (newEmail) {
+                        setEmails([...emails, newEmail]);
+                        setNewEmail('');
+                    }
+                }}>Add</button>
+            </div><br />
+            <div className="settings-section">
+                <label>
+                    Current list of emails: <ul>{emailList}</ul>
+                </label></div><br />
             {/*TODO fix login */}
             <button onClick={() => alert(`Frequency: ${frequency}\nEmails: ${emails}`)}/*{() => apiService.login('FIXME', "FIXME")}*/>Update settings</button> {/*TODO change to apiService.setPreferences()*/}
         </div>
