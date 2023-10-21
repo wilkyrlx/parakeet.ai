@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import apiService from "../api/ApiService";
 import NoStories from "../components/NoStories";
 
-// TODO: something should be shown if there are no stories
 
 function ReadPage() {
     // const currentDate = new Date();
