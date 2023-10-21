@@ -5,7 +5,7 @@ import Settings from "../types/Settings"
 function SettingsPage(settings: Settings) {
     const [frequency, setFrequency] = useState('');
     const [newEmail, setNewEmail] = useState('');
-    const [emails, setEmails] = useState([""]);
+    const [emails, setEmails] = useState<string[]>([]);
     //const emailList = settings.emails.map((email: string) => <li>{email}</li>)
     const emailList = emails.map((email: string) => <li>{email}</li>)
 
