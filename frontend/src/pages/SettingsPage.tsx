@@ -17,7 +17,8 @@ function SettingsPage(settings: Settings) {
             <label>
                 Add new email: <input name="email" type="email" />
             </label>
-            <button onClick={() => apiService.login()}>Login!</button> {/*TODO change to apiService.setPreferences()*/}
+            {/*TODO fix login */}
+            <button onClick={() => apiService.login('FIXME', "FIXME")}>Login!</button> {/*TODO change to apiService.setPreferences()*/}
         </div>
     )
 }
