@@ -47,7 +47,7 @@ function WritePage() {
                     onChange={(ev) => setResponse(ev.target.value)}
                 />
                 <br /><br />
-                <button id="submit-button" onClick={() => alert(`You responded: ${response}`)}>
+                <button id="submit-button" onClick={() => submitStory()}>
                     Submit
                 </button>
             </div>
