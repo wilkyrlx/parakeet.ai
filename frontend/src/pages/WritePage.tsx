@@ -4,15 +4,17 @@ import apiService from "../api/ApiService";
 import TextStory from "../types/TextStory";
 
 function WritePage() {
-    const [response, setResponse] = useState('');
+    const [prompt, setPrompt] = useState<string>('Tell us a story about your favorite food! Why is it so special to you?');
+    const [response, setResponse] = useState<string>('');
       
     function submitStory(){
         const currentDate = new Date()
         const newstory: TextStory = {
-            title: "Tell us a story about your favorite food! Why is it so special to you?",
-            content: "${response}",
+            title: prompt,
+            content: response,
             date: currentDate,
         };
+        console.log(newstory);
         apiService.addStoryToDB(newstory);
     }; 
 
@@ -22,7 +24,7 @@ function WritePage() {
                 <h1>Memory of the Day</h1> 
                 <div id="prompt">
                     <p>Save something important today!</p>
-                    <p>Tell us a story about your favorite food! Why is it so special to you?</p>
+                    <p>{prompt}</p>
                 </div>
                 
                 <textarea
