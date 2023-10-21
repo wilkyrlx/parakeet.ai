@@ -6,8 +6,9 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "npm --prefix ./functions run serve"
-
+    "start": "npm run dev",
+    "dev": "npm --prefix ./functions run serve",
+    "deploy": "npm --prefix ./functions run build && npm --prefix ./functions run deploy"
   },
   "compilerOptions": {
     "target": "ES6",
