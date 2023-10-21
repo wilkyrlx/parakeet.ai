@@ -13,6 +13,7 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <div className='navbar'>
+                    <Link to={"/"} className='link'>Home</Link>
                     <Link to={"/login"} className='link'>Login</Link>
                     <Link to={"/read"} className='link'>Read</Link>
                     <Link to={"/write"} className='link'>Write</Link>
