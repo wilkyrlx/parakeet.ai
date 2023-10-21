@@ -26,15 +26,19 @@ class ApiService {
             password: password,
         };
 
-        const response = await fetch(`${this.backendUri}/register`, {
-            method: 'POST',
-            headers: this.generateHeaders(),
-            body: JSON.stringify(body), // Stringify the data to JSON
-        });
-
-        const data = await response.json();
-        console.log(data);
-        return data;
+        try {
+            const response = await fetch(`${this.backendUri}/register`, {
+                method: 'POST',
+                headers: this.generateHeaders(),
+                body: JSON.stringify(body), // Stringify the data to JSON
+            });
+    
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error("register request failed: ", error);   
+        }
     }
 
     async login(email: string, password: string) {
@@ -44,39 +48,51 @@ class ApiService {
             password: password,
         };
 
-        const response = await fetch(`${this.backendUri}/login`, {
-            method: 'POST',
-            headers: this.generateHeaders(),
-            body: JSON.stringify(body), // Stringify the data to JSON
-        });
-
-        const data = await response.json();
-        console.log(data);
-        return data;
+        try {
+            const response = await fetch(`${this.backendUri}/login`, {
+                method: 'POST',
+                headers: this.generateHeaders(),
+                body: JSON.stringify(body), // Stringify the data to JSON
+            });
+    
+            const data = await response.json();
+            console.log(data);
+            return data;   
+        } catch (error) {
+            console.error("register request failed: ", error);   
+        }
     }
 
     async addStoryToDB(story: TextStory) {
-        const response = await fetch(`${this.backendUri}/addStoryToDB`, {
-            method: 'POST',
-            headers: this.generateHeaders(),
-            body: JSON.stringify(story)
-        })
-        const data = await response.json()
-        console.log(data)
-        return data
+
+        try {
+            const response = await fetch(`${this.backendUri}/addStoryToDB`, {
+                method: 'POST',
+                headers: this.generateHeaders(),
+                body: JSON.stringify(story)
+            })
+            const data = await response.json()
+            console.log(data)
+            return data     
+        } catch (error) {
+            console.error("addStoryToDB request failed: ", error);
+        }
+       
     }
 
     async getAllStoriesFromDB() {
-        const response = await fetch(`${this.backendUri}/getAllStoriesFromDB`, {
-            method: 'GET',
-            headers: this.generateHeaders(),
-        });
-
-        const data = await response.json();
-        return data;
+        try {
+            const response = await fetch(`${this.backendUri}/getAllStoriesFromDB`, {
+                method: 'GET',
+                headers: this.generateHeaders(),
+            });
+    
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("getAllStoriesFromDB request failed: ", error);
+        }
     }
-
-
 
 }
 
