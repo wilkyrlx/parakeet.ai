@@ -1,6 +1,3 @@
-// NOTE: Do not actually reference this file. This file is just a reference to the specific type
-// Copy below
-
 // TextStory v1
 class TextStory {
     title: string;
@@ -13,3 +10,5 @@ class TextStory {
         this.date = date;
     }
 }
+
+export default TextStory;

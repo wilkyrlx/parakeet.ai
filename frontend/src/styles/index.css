@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-
+/* NAVBAR */
 .navbar {
     background-color: #333;
     overflow: hidden;
@@ -20,4 +20,33 @@ body {
 
 .navbar .link:hover {
     background-color: #555;
+}
+
+
+/* LIST ITEM */
+.list-item {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added for positioning the delete link */
+}
+
+.list-item-header {
+    display: flex;
+    align-items: center;
+}
+
+.list-item-name {
+    margin: 0;
+    font-size: 18px;
+    color: #333333;
+    margin-right: 10px;
+}
+
+.list-item-date {
+    margin: 0;
+    font-size: 14px;
+    color: #777777;
 }

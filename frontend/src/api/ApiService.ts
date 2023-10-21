@@ -1,4 +1,4 @@
-import TextStory from "../../../shared/types/TextStory"
+import TextStory from "../types/TextStory";
 
 class ApiService {
     backendUri: string;
