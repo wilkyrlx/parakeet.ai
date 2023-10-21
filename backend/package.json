@@ -6,9 +6,8 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "npm run build && npm run serve",
-    "serve": "node ./lib/index.js",
-    "build": "tsc"
+    "start": "npm --prefix ./functions run serve"
+
   },
   "compilerOptions": {
     "target": "ES6",
