@@ -5,8 +5,10 @@ import LoginPage from './pages/LoginPage';
 import WritePage from './pages/WritePage';
 import ReadPage from './pages/ReadPage';
 import SettingsPage from './pages/SettingsPage';
+import Settings from "./types/Settings"
 
 function App() {
+    const dummySettings = new Settings(7, ["harvardparakeetai@gmail.com"])
     return (
         <div className="App">
             <BrowserRouter>
@@ -21,7 +23,7 @@ function App() {
                     <Route path='/login' element={<LoginPage />} />
                     <Route path='/read' element={<ReadPage />} />
                     <Route path='/write' element={<WritePage />} />
-                    <Route path='/settings' element={<SettingsPage />} />
+                    <Route path='/settings' element={<SettingsPage settings={dummySettings}/>} />
                 </Routes>
             </BrowserRouter>
         </div>
