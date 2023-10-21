@@ -24,7 +24,7 @@ function App() {
                     <Route path='/login' element={<LoginPage />} />
                     <Route path='/read' element={<ReadPage />} />
                     <Route path='/write' element={<WritePage />} />
-                    <Route path='/settings' element={<SettingsPage settings={dummySettings}/>} />
+                    <Route path='/settings' element={<SettingsPage {...dummySettings}/>} />
                 </Routes>
             </BrowserRouter>
         </div>
