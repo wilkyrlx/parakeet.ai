@@ -9,28 +9,18 @@ class ApiService {
 
     generateHeaders(): any {
         const headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'userid': 'dummy_user_id',
         };
         return headers
     }
 
-    async login() {
-        console.log("logging in...")
-        const response = await fetch(`${this.backendUri}/login`, {
-            method: 'POST',
-            headers: this.generateHeaders(),
-            body: ""
-        })
-        const data = await response.json()
-        console.log(data)
-        return data
-    }
 
     async addStoryToDB(story: TextStory) {
         const response = await fetch(`${this.backendUri}/addStoryToDB`, {
             method: 'POST',
             headers: this.generateHeaders(),
-            body: ""
+            body: JSON.stringify(story)
         })
         const data = await response.json()
         console.log(data)
@@ -39,21 +29,51 @@ class ApiService {
 
     async register() {
         const body = {
-          user: 'test1',
-          pass: 'test2',
-          // Other data fields if needed
+            email: 'test1',
+            password: 'test2',
+            // Other data fields if needed
         };
-      
+
         const response = await fetch(`${this.backendUri}/register`, {
-          method: 'POST',
-          headers: this.generateHeaders(),
-          body: JSON.stringify(body), // Stringify the data to JSON
+            method: 'POST',
+            headers: this.generateHeaders(),
+            body: JSON.stringify(body), // Stringify the data to JSON
         });
-      
+
         const data = await response.json();
         console.log(data);
         return data;
-      }
+    }
+
+    async login() {
+        const body = {
+            email: 'test1',
+            password: 'test2',
+        };
+
+        const response = await fetch(`${this.backendUri}/login`, {
+            method: 'POST',
+            headers: this.generateHeaders(),
+            body: JSON.stringify(body), // Stringify the data to JSON
+        });
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
+
+    async getAllStories() {
+        const response = await fetch(`${this.backendUri}/getAllStories`, {
+            method: 'GET',
+            headers: this.generateHeaders(),
+        });
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
+
+
 
 }
 

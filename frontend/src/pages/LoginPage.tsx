@@ -27,7 +27,7 @@ function LoginPage() {
                     Password: <input name="password" />
                 </label><br />
 
-                <button onClick={() => apiService.login()}>Register!</button> {/*TODO change login() to register()*/}
+                <button onClick={() => apiService.register()}>Register!</button>
             </div>
         </div>
     )
