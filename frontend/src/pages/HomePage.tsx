@@ -11,10 +11,10 @@ function HomePage() {
     return (
         <div id="home-page">
             Home Page
-            <button onClick={() => apiService.register()}>RegisterTest</button>
-            <button onClick={() => apiService.login()}>LoginTest</button>
+            <button onClick={() => apiService.register("john@email.com", "password")}>RegisterTest</button>
+            <button onClick={() => apiService.login("john@email.com", "password")}>LoginTest</button>
             <button onClick={() => apiService.addStoryToDB(s1)}> add Story test</button>
-            <button onClick={() => apiService.getAllStories()}> get Stories test</button>
+            <button onClick={() => apiService.getAllStoriesFromDB()}> get Stories test</button>
         </div>
     )
 }

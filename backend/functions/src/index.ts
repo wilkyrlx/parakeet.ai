@@ -1,12 +1,3 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
 import { onRequest } from "firebase-functions/v2/https";
 import express, { Request, Response } from "express";
 import * as logger from "firebase-functions/logger";
@@ -47,7 +38,7 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/register", (req: Request, res: Response) => {
     const userID = getUserID(req)
     const email = req.body.email;
-    const password = req.body.pass;
+    const password = req.body.password;
     const data = { "email": email, "password": password }
 
     db.collection(collectionID).doc(userID).collection('login').add(data)
@@ -57,18 +48,31 @@ app.post("/register", (req: Request, res: Response) => {
     res.send({ message: "Registration Successful" })
 });
 
-// TODO
+// Note: v1 complete
 app.post('/login', (req, res) => {
     const userID = getUserID(req)
 
-    const email = req.body.email;
     const password = req.body.password;
 
-    const docRef = db.collection(collectionID).doc(userID).collection('login').doc(email);
-});
+    const passwordDoc = db.collection(collectionID).doc(userID).collection('login');
+    passwordDoc.limit(1).get()
+        .then((querySnapshot) => {
+            if (!querySnapshot.empty) {
+                // Access the first document
+                const firstDocument = querySnapshot.docs[0];
+                const data = firstDocument.data();
+                console.log('First document data:', data);
+                if (data.password === password) {
+                    res.send({ message: "Login Successful" })
+                } else {
+                    res.send({ message: "Login Failed" })
+                }
+            } 
+        });
+})
 
 // TODO
-app.get("/SetPreferences", (req: Request, res: Response) => {
+app.get("/setPreferences", (req: Request, res: Response) => {
     console.log("editing preferences")
 })
 
@@ -93,7 +97,7 @@ app.post("/addStoryToDB", (req: Request, res: Response) => {
 });
 
 // Note: v1 complete
-app.get("/getAllStories", (req, res) => {
+app.get("/getAllStoriesFromDB", (req, res) => {
     const userID = getUserID(req)
 
     logger.log("reading the stories")

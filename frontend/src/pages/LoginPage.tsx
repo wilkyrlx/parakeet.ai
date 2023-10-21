@@ -12,7 +12,7 @@ function LoginPage() {
                 <label>
                     Password: <input name="password" />
                 </label><br />
-                <button onClick={() => apiService.login()}>Login!</button>
+                <button onClick={() => apiService.login("test@email.com", "password")}>Login!</button>
             </div>
 
             <div className="register">
@@ -27,7 +27,7 @@ function LoginPage() {
                     Password: <input name="password" />
                 </label><br />
 
-                <button onClick={() => apiService.register()}>Register!</button>
+                <button onClick={() => apiService.register("test@email.com", "password")}>Register!</button>
             </div>
         </div>
     )
