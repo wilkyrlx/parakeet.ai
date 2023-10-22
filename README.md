@@ -9,6 +9,19 @@ To build the project:
 3. cd into the frontend directory and run `npm install`
 4. cd into the backend directory and run `npm install`
 5. cd into the functions directory and run `npm install` and `npm install -g firebase-tools`
+6. Add a file named `firebaseConfigSecret.ts` to the secret directory in the functions directory. It should look like:
+```
+const firebaseConfigSecret = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+};
+
+export default firebaseConfigSecret;
+```
 
 To run the backend locally:
 1. cd into the backend directory and run `npm start`
