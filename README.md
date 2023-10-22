@@ -15,7 +15,8 @@ For us, the AI digital avatar is an afterthought, not the main focus. We believe
     - Users can set up accounts for loved ones easily, so the curator does not have to do anything but share their stories.
 
 ## Using Parakeet.ai
-> [!WARNING] Parakeet.ai is still in a **very** early stage of prototyping, and many security features are demo-only. Passwords and authentication is not implemented securely, so please do not submit any sensitive information. We do not sell any data to third parties. We are not responsible for any data leaks or breaches that may occur.
+> [!WARNING]
+> Parakeet.ai is still in a **very** early stage of prototyping, and many security features are demo-only. Passwords and authentication is not implemented securely, so please do not submit any sensitive information. We do not sell any data to third parties. We are not responsible for any data leaks or breaches that may occur.
 
 ### Principal
 The principal is in charge of setting up the account for the curator and inviting viewers. They can also view the curator's responses. This person may be a family member or a caretaker, for example.
