@@ -29,8 +29,8 @@ function App() {
                     <Link to={"/"} className='link'>Login</Link>
                     <Link to={"/test"} className='link'>Testing</Link>
                     <Link to={"/read"} className='link'>Read</Link>
-                    <Link to={"/audio"} className='link'>Audio</Link>
-                    { hasWriteAccess() && <Link to={"/write"} className='link'>Write</Link> }
+                    { hasWriteAccess() && <Link to={"/audio"} className='link'>Audio</Link>}
+                    { hasWriteAccess() && <Link to={"/write"} className='link'>Write</Link>}
                     { hasSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
                 </div>
                 <Routes>

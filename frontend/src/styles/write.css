@@ -51,3 +51,36 @@ p {
     cursor: pointer;
     margin-top: 20px;
   }
+
+  #audio-buttons {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  #start {
+    color: #fff;
+    background-color:#7bc77b;
+    padding: 10px 20px;
+  }
+
+  #stop {
+    color: #fff;
+    background-color:#e1471ddd;
+    padding: 10px 20px;
+  }
+
+  #clear {
+    color: #fff;
+    background-color:#c6bb24;
+    padding: 10px 20px;
+  }
+
+  #save {
+    color: #fff;
+    background-color:#000000;
+    padding: 10px 20px;
+  }
