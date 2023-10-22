@@ -26,8 +26,6 @@ function ReadPage() {
         setStories(stories)
     }
 
-    console.log(stories.length)
-
     return (
         <div id="read-page">
             { stories.length > 0 && <StoryList stories={stories}/> }

@@ -6,7 +6,7 @@ function StoryList({stories }: { stories: TextStory[] }) {
     return(
         <div>
             <ul>
-                { stories.map((story) => <StoryListItem story={story} />) }
+                { stories.map((story, i) => <StoryListItem story={story} key={i.toString()}/>) }
             </ul>
         </div>
     )
