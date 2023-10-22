@@ -1,6 +1,8 @@
 # Parakeet.ai
 Parakeet.ai is our submission for HackHarvard 2023! You can read more in our [devpost linked here!](https://devpost.com/software/parakeet-ai).
 
+Visit [our website to learn more about Parakeet.ai](https://parakeet-ai.webflow.io/) and check out the [beta version of our web app](https://parakeet-5e1a9.web.app/)
+
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/wilkyrlx/parakeet.ai/blob/main/shared/parakeet1.png?raw=true" width="150" alt="Parakeet Image" style="margin-right: 10px;">
     <blockquote style="margin: 0; font-style: italic;">
