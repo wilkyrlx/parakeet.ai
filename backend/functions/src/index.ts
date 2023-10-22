@@ -138,7 +138,7 @@ app.get("/getPrompt", (req, res) => {
 })
 
 app.get("/sendEmail", async (req, res) => {
-    sendEmail()
+    sendEmail("d", "h") // TODO: change this
     res.send("email sent")
 });
 

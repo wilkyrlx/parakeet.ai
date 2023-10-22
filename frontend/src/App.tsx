@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import SpeechText from './pages/AudioPage';
@@ -12,7 +12,23 @@ import AudioPage from './pages/AudioPage';
 function App() {
     const dummySettings = new Settings(7, ["harvardparakeetai@gmail.com"])
 
-    const [accountType, setAccountType] = React.useState<string>('');
+    const [accountType, setAccountType] = useState<string>('');
+    const [specialCuratorID, setSpecialCuratorID] = useState<string>('NONE');
+
+
+    function hasCuratorParameter() {
+        const searchParams = new URLSearchParams(window.location.search);
+        return searchParams.has('curator');
+    }
+
+    useEffect(() => {
+        if (hasCuratorParameter()) {
+            setAccountType('viewer');
+            const curatorID: string = new URLSearchParams(window.location.search).get('curator') || 'NONE';
+            console.log('curatorID: ' + curatorID);
+            setSpecialCuratorID(curatorID);
+        }
+    }, []);
 
     function hasWriteAudioAccess() {
         return accountType === 'curator';
@@ -34,7 +50,7 @@ function App() {
                     { hasReadSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
                 </div>
                 <Routes>
-                    <Route path='/' element={<LoginPage setAccountType={setAccountType} />} />
+                    <Route path='/' element={<LoginPage setAccountType={setAccountType} specialCuratorID={specialCuratorID} />} />
                     <Route path='/test' element={<HomePage />} />
                     <Route path='/read' element={<ReadPage />} />
                     <Route path='/audio' element={<AudioPage/>} />

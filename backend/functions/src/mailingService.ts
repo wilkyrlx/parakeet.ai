@@ -6,25 +6,29 @@ const mailjet = Mailjet.apiConnect(
     mailjetConfigSecret.secretKey
 );
 
-function sendEmail() {
+function sendEmail(destinationEmail: string, linkCode: string) {
+
+    const referralLink = "https://parakeet-5e1a9.web.app/"
+    const rickRoll = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
     const request = mailjet
         .post('send', { version: 'v3.1' })
         .request({
             Messages: [
                 {
                     From: {
-                        Email: "john_wilkinson@brown.edu",
-                        Name: "John Wilkinson"
+                        Email: "harvardparakeetai@gmail.com",
+                        Name: "Parakeet"
                     },
                     To: [
                         {
-                            Email: "noah_h_kim@brown.edu",
-                            Name: "Noah Kim"
+                            // TODO: change to user email
+                            Email: destinationEmail,
                         }
                     ],
-                    Subject: "Your email flight plan!",
-                    TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
-                    HTMLPart: "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3><br />May the delivery force be with you!"
+                    Subject: "Urgent Message from Pear the Parakeet",
+                    TextPart: `Hi! I'm Pear the Parakeet! Do you love your family? If yes, ${referralLink}! If no, ${rickRoll}!`,
+                    HTMLPart: `<p>Hi! I'm <strong>Pear the Parakeet</strong>!</p><p>Do you love your family? If yes, click <a href=\"${referralLink}\">here</a>!</p><p>If no, click <a href=\"${rickRoll}\">here</a>!</p>`,
                 }
             ]
         })

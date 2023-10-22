@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import apiService from "../api/ApiService"
 import StatefulInputBox from "../components/StatefulInputBox";
 import DefaultLogin from "../components/login/DefaultLogin";
@@ -9,10 +9,18 @@ import ReferredRegistration from "../components/login/ReferredRegistration";
 import '../styles/login.css';
 
 
-function LoginPage({ setAccountType }: { setAccountType: any }) {
+function LoginPage({ setAccountType, specialCuratorID }: { setAccountType: any, specialCuratorID: string }) {
 
     const [loginView, setLoginView] = useState<LoginView>(LoginView.LOGIN)
     const [curatorID, setCuratorID] = useState<string>('')
+
+    useEffect(() => {
+        if (specialCuratorID !== 'NONE') {
+            setLoginView(LoginView.VIEWER_REGISTER)
+            setCuratorID(specialCuratorID)
+        }
+    }, [specialCuratorID])
+
 
     return (
         <div>
