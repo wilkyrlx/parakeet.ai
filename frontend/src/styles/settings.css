@@ -1,5 +1,6 @@
 
 .settings-page {
+    font-family: Helvetica;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -7,11 +8,12 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  /*
+  
   .settings-header {
+    text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-  }*/
+  }
   
   .settings-section {
     background-color: #f9f9f9;
@@ -20,22 +22,23 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+  /*
   .settings-section h2 {
     font-size: 18px;
     margin-bottom: 10px;
-  }
+  }*/
   
   .settings-section label {
     display: block;
-    font-weight: bold;
+    font-family: Helvetica;
+    /*font-weight: bold;*/
     margin-bottom: 5px;
   }
   
   .settings-section input[type="text"],
   .settings-section input[type="email"],
   .settings-section select {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;

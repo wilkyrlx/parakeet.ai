@@ -12,7 +12,7 @@ function SettingsPage(settings: Settings) {
 
     return (
         <div id="settings-page" className="settings-page">
-            <h3>Settings Page</h3>
+            <h3 className="settings-header">Settings Page</h3>
             <div className="settings-section">
                 <label>
                     Frequency of sending stories to family, in days (enter 0 to never send):
@@ -33,13 +33,17 @@ function SettingsPage(settings: Settings) {
                         setNewEmail('');
                     }
                 }}>Add</button>
-            </div><br />
-            <div className="settings-section">
+                <br /><br />
                 <label>
                     Current list of emails: <ul>{emailList}</ul>
                 </label></div><br />
-            {/*TODO fix login */}
-            <button onClick={() => alert(`Frequency: ${frequency}\nEmails: ${emails}`)}/*{() => apiService.login('FIXME', "FIXME")}*/>Update settings</button> {/*TODO change to apiService.setPreferences()*/}
+            <div className="settings-section">
+                {/*TODO fix login */}
+                <button onClick={() => alert(`Frequency: ${frequency}\nEmails: ${emails}`)}
+                /*{() => apiService.login('FIXME', "FIXME")}*/
+                >Update settings</button>
+                {/*TODO change to apiService.setPreferences()*/}
+            </div>
         </div>
     )
 }
