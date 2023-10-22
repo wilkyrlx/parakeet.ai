@@ -4,9 +4,22 @@ import apiService from "../api/ApiService";
 import TextStory from "../types/TextStory";
 
 function WritePage() {
-  const [prompt, setPrompt] = useState<string>('Tell us a story about your favorite food! Why is it so special to you?');
+  const [prompt, setPrompt] = useState<string>("loading prompt");
   const [response, setResponse] = useState<string>('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    getPrompt();
+  })
+
+  async function getPrompt() {
+    const promptRaw = await apiService.getPrompt()
+    if (promptRaw == null) {
+      return
+    }
+    const currentPrompt: string = promptRaw.prompt
+    setPrompt(currentPrompt)
+  }
 
   function submitStory() {
     setSubmitted(true);

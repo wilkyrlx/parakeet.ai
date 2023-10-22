@@ -130,9 +130,10 @@ app.get("/getAllStoriesFromDB", (req, res) => {
 })
 
 app.get("/getPrompt", (req, res) => {
-    res.send(prompts[
+    const prompt = prompts[
         Math.floor(Math.random() * prompts.length)
-    ])
+    ]
+    res.send({"prompt": prompt})
 })
 
 exports.app = functions.https.onRequest(app);

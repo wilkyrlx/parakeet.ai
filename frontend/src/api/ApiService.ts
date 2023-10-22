@@ -105,6 +105,19 @@ class ApiService {
         }
     }
 
+    async getPrompt() {
+        try {
+            const response = await fetch(`${this.backendUri}/getPrompt`, {
+                method: 'GET',
+                headers: this.generateHeaders(),
+            });
+    
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("getPrompt request failed: ", error);
+        }
+    }
 }
 
 // Create and export a singleton instance of ApiService
