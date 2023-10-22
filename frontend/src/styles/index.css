@@ -7,6 +7,7 @@ body {
 .navbar {
     background-color: #333;
     overflow: hidden;
+    font-family: Helvetica;
 }
 
 .navbar .link {
@@ -22,7 +23,6 @@ body {
     background-color: #555;
 }
 
-
 /* LIST ITEM */
 .list-item {
     background-color: #ffffff;
@@ -30,7 +30,8 @@ body {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* Added for positioning the delete link */
+    position: relative;
+    /* Added for positioning the delete link */
 }
 
 .list-item-header {
@@ -58,9 +59,15 @@ body {
     overflow: hidden;
     width: 800px; /* Adjust the width as needed */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    font-family: Helvetica;
+
+    .login h3, .register h3{
+        text-align: center;
+    }
 }
 
-.login {
+.login, .register{
     flex: 1;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -68,14 +75,21 @@ body {
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    label {
+        padding-bottom: 10px;
+    }
 }
 
-.register {
-    flex: 1;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.login-page button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login-page button:hover {
+    background-color: #0056b3;
 }
