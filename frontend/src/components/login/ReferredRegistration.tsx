@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiService from "../../api/ApiService";
 import StatefulInputBox from "../StatefulInputBox";
+import { useNavigate } from "react-router-dom";
 
 function ReferredRegistration({ setAccountType, setLoginView, curatorID }: { setAccountType: any, setLoginView: any, curatorID: string }) {
 
@@ -8,11 +9,16 @@ function ReferredRegistration({ setAccountType, setLoginView, curatorID }: { set
     const [viewerEmail, setViewerEmail] = useState<string>('');
     const [viewerPassword, setViewerPassword] = useState<string>(''); 
 
+    const navigate = useNavigate();
+
     async function viewerRegister() {
         // TODO: set ViewerID in register request
         const accountType = await apiService.register(viewerEmail, viewerPassword, "viewer", curatorID)
         setAccountType(accountType)
         console.log(accountType)
+
+        console.log("redirecting to read")
+        navigate("/read")
     }
     
     return (

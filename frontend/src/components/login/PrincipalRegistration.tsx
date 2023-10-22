@@ -1,20 +1,26 @@
 import { useState } from "react";
 import StatefulInputBox from "../StatefulInputBox"
 import apiService from "../../api/ApiService";
+import { useNavigate } from "react-router-dom";
 
 function PrincipalRegistration({ setAccountType, setLoginView, curatorID }: { setAccountType: any, setLoginView: any, curatorID: string }) {
 
     const [principalName, setPrincipalName] = useState<string>('');
     const [principalEmail, setPrincipalEmail] = useState<string>('');
-    const [principalPassword, setPrincipalPassword] = useState<string>(''); 
+    const [principalPassword, setPrincipalPassword] = useState<string>('');
+
+    const navigate = useNavigate();
 
     async function principalRegister() {
         // TODO: set curatorID in register request
         const accountType = await apiService.register(principalEmail, principalPassword, "principal", curatorID)
         setAccountType(accountType)
         console.log(accountType)
+
+        console.log("redirecting to settings")
+        navigate("/settings")
     }
-    
+
     return (
         <div className="login-page">
             <div className="register">

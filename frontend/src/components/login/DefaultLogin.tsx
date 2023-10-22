@@ -4,6 +4,7 @@ import { useState } from "react";
 import apiService from "../../api/ApiService";
 import StatefulInputBox from "../StatefulInputBox";
 import LoginView from "../../types/LoginView";
+import { useNavigate } from "react-router-dom";
 
 
 function DefaultLogin({ setAccountType, setLoginView }: { setAccountType: any, setLoginView: any }) {
@@ -11,10 +12,19 @@ function DefaultLogin({ setAccountType, setLoginView }: { setAccountType: any, s
     const [userEmail, setUserEmail] = useState<string>('');
     const [userPassword, setUserPassword] = useState<string>('');
 
+    const navigate = useNavigate();
+
     async function userLogin() {
         const accountType = await apiService.login(userEmail, userPassword)
         setAccountType(accountType)  // TODO: should get something from login request
         console.log(accountType)
+        if (accountType === "curator") {
+            console.log("redirecting to write")
+            navigate("/write")
+        } else {
+            console.log("redirecting to read")
+            navigate("/read")
+        }
     }
 
     return (
