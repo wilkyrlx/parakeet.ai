@@ -10,7 +10,7 @@ function WritePage() {
 
   useEffect(() => {
     getPrompt();
-  })
+  }, [])
 
   async function getPrompt() {
     const promptRaw = await apiService.getPrompt()
