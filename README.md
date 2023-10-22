@@ -1,5 +1,7 @@
 # Parakeet.ai
 Parakeet.ai is our submission for HackHarvard 2023! You can read more in our [devpost linked here!](https://devpost.com/software/parakeet-ai).
+our logo:
+![parakeet.ai logo](https://github.com/wilkyrlx/parakeet.ai/blob/main/shared/parakeet.png?raw=true)
 
 ## Inspiration
 Our project was inspired by CareYaya's ImmortalAI project, which seeks to create a digital avatar of a person that can be used to interact with their loved ones after they pass away. An issue we identified was that the process of collecting enough rich, personal data is a difficult and boring process if done incorrectly. Our goal was to design an application that would make the process of collecting data as easy and fun as possible for the elderly. 
@@ -37,14 +39,14 @@ The viewer is the person viewing the curator's responses. They can view the resp
 2. Go to [parakeet.ai](https://parakeet-5e1a9.web.app/) and login using your login credentials next time you use the app. You can view the curator's responses in the 'Read' tab.
 
 
-
 ## Roadmap
 We hope to expand this project to provide better service to our users while generating even more robust data to unlock the potential for highly accurate Immortal AIs. 
 Our Roadmap going forward includes but is not limited to:
 1. Integrating chatbots that can continue the conversation with our curators.
 2. An embedded video speedfriending social media platform for our curators to socialize while opening a vector towards real likeness and personality modeling.
 3. Adding an audio recorder that  records the actual voices during speech-to-text such that families have the option of authentic voice replication.
-4. Integrating game-changing health features such as using ML models to non-invasively screen each audio recording for signs of early onset dementia or Alzheimer's based on vocal patterns.
+4. Integrating game-changing health features such as using ML models to non-invasively screen each audio recording for stages of dementia or Alzheimer's based on vocal patterns.
+5. Collaborating with [StoryWorth](https://welcome.storyworth.com/) to provide a physical notebook to curators who prefer pen and paper, but still want to log their stories.
 
 
 
