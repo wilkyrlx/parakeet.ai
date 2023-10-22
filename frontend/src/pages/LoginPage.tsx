@@ -23,10 +23,13 @@ function LoginPage({ setAccountType, specialCuratorID, curatorID, setCuratorID }
 
     return (
         <div>
-\            { loginView === LoginView.LOGIN && <DefaultLogin setAccountType={setAccountType} setLoginView={setLoginView} /> }     
+            { loginView === LoginView.LOGIN && <DefaultLogin setAccountType={setAccountType} setLoginView={setLoginView} /> }     
             { loginView === LoginView.CURATOR_REGISTER && <CuratorRegistration setAccountType={setAccountType} setLoginView={setLoginView} setCuratorID={setCuratorID} /> }
             { loginView === LoginView.PRINCIPAL_REGISTER && <PrincipalRegistration setAccountType={setAccountType} setLoginView={setLoginView} curatorID={curatorID} /> }
             { loginView === LoginView.VIEWER_REGISTER && <ReferredRegistration setAccountType={setAccountType} setLoginView={setLoginView} curatorID={curatorID} /> }
+            <div className="login-warning">
+                <p><strong>Warning:</strong> do not use real passwords, and do not input sensitive data. This site is in beta testing and is not secure.</p>
+            </div>
         </div>
     )
 }
