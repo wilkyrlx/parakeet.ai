@@ -17,6 +17,11 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
+const prompts: string[] = [
+    "Tell us a story about your favorite food! Why is it so special to you?",
+    "Did anything happen today that made you happy? Tell us about them!",
+    "What's one of your favorite childhood memories? What makes it so endearing to you?"
+];
 
 // TODO: change this
 const collectionID = "debug"
@@ -122,6 +127,12 @@ app.get("/getAllStoriesFromDB", (req, res) => {
             logger.error("Error getting documents: ", error);
         });
 
+})
+
+app.get("/getPrompt", (req, res) => {
+    res.send(prompts[
+        Math.floor(Math.random() * prompts.length)
+    ])
 })
 
 exports.app = functions.https.onRequest(app);
