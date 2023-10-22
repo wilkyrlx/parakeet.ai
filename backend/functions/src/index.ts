@@ -71,7 +71,7 @@ app.post('/login', (req, res) => {
                 const data = firstDocument.data();
                 console.log('First document data:', data);
                 if (data.password === password) {
-                    res.send({ message: "Login Successful", accountType: data.accountType })
+                    res.send({ message: "Login Successful", accountType: data.accountType, curatorID: data.curatorID })
                 } else {
                     res.send({ message: "Login Failed", accountType: "" })
                 }
@@ -107,10 +107,11 @@ app.post("/addStoryToDB", (req: Request, res: Response) => {
 // Note: v1 complete
 app.get("/getAllStoriesFromDB", (req, res) => {
     const userID = getUserID(req)
+    const curatorID = req.headers.curatorid as string
 
     logger.log("reading the stories")
 
-    db.collection(collectionID).doc(userID).collection('stories').get()
+    db.collection(collectionID).doc(curatorID).collection('stories').get()
         .then((querySnapshot) => {
             const data = querySnapshot.docs.map((doc) => {
                 return doc.data()

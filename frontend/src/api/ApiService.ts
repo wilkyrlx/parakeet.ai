@@ -3,30 +3,34 @@ import TextStory from "../types/TextStory";
 class ApiService {
     backendUri: string;
     userId: string;
+    curatorId: string;
 
     constructor(backendUri: string) {
         this.backendUri = backendUri;
         this.userId = "UNKNOWN_USER_ID";
+        this.curatorId = "UNKNOWN_CURATOR_ID";
     }
 
     generateHeaders(): any {
         const headers = {
             'Content-Type': 'application/json',
             'userid': this.userId,
+            'curatorid': this.curatorId
         };
         return headers
     }
     
     // Note: both register and login log the user in
-    async register(email: string, password: string, accountType: string) {
+    async register(email: string, password: string, accountType: string, curatorID: string) {
         this.userId = email;    // set userId
+        this.curatorId = curatorID; // set curatorId
 
         // TODO: change accountType and curatorID
         const body = {
             email: email,
             password: password,
             accountType: accountType,
-            curatorID: email,
+            curatorID: curatorID,
         };
 
         try {
@@ -63,6 +67,7 @@ class ApiService {
             const data = await response.json();
             console.log(data);
             const accountType = data.accountType;
+            this.curatorId = data.curatorID;
             return accountType; 
         } catch (error) {
             console.error("register request failed: ", error);   

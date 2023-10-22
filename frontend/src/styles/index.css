@@ -57,10 +57,11 @@ body {
     border-radius: 8px;
     display: flex;
     overflow: hidden;
-    width: 800px; /* Adjust the width as needed */
+    width: 400px; /* Adjust the width as needed */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     font-family: Helvetica;
+    margin-top: 30px;
 
     .login h3, .register h3{
         text-align: center;
