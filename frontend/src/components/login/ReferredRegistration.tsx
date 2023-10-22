@@ -12,7 +12,6 @@ function ReferredRegistration({ setAccountType, setLoginView, curatorID }: { set
     const navigate = useNavigate();
 
     async function viewerRegister() {
-        // TODO: set ViewerID in register request
         const accountType = await apiService.register(viewerEmail, viewerPassword, "viewer", curatorID)
         setAccountType(accountType)
         console.log(accountType)

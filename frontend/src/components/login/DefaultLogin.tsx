@@ -16,7 +16,7 @@ function DefaultLogin({ setAccountType, setLoginView }: { setAccountType: any, s
 
     async function userLogin() {
         const accountType = await apiService.login(userEmail, userPassword)
-        setAccountType(accountType)  // TODO: should get something from login request
+        setAccountType(accountType)  
         console.log(accountType)
         if (accountType === "curator") {
             console.log("redirecting to write")

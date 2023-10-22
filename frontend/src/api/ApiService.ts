@@ -26,7 +26,6 @@ class ApiService {
         this.userId = email;    // set userId
         this.curatorId = curatorID; // set curatorId
 
-        // TODO: change accountType and curatorID
         const body = {
             email: email,
             password: password,
@@ -121,6 +120,7 @@ class ApiService {
     }
 
     async sendEmail(destinationEmail: string, linkCode: string) {
+        // TODO: validate email 
         const body = {
             destinationEmail: destinationEmail,
             linkCode: linkCode,
@@ -143,7 +143,6 @@ class ApiService {
 }
 
 // Create and export a singleton instance of ApiService
-// TODO: set backend URI, change userId based on login. Maybe create this singleton on login?
 const backendUri = config.backendUri || "http://127.0.0.1:5001/parakeet-5e1a9/us-central1/app";
 const apiService = new ApiService(backendUri);
 export default apiService;

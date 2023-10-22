@@ -22,7 +22,6 @@ function sendEmail(destinationEmail: string, linkCode: string) {
                     },
                     To: [
                         {
-                            // TODO: change to user email
                             Email: destinationEmail,
                         }
                     ],

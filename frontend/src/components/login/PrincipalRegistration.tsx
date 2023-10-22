@@ -12,7 +12,6 @@ function PrincipalRegistration({ setAccountType, setLoginView, curatorID }: { se
     const navigate = useNavigate();
 
     async function principalRegister() {
-        // TODO: set curatorID in register request
         const accountType = await apiService.register(principalEmail, principalPassword, "principal", curatorID)
         setAccountType(accountType)
         console.log(accountType)

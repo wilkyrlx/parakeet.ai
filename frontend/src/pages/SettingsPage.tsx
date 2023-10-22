@@ -41,10 +41,7 @@ function SettingsPage({ settings, curatorID }: { settings: Settings, curatorID: 
                     Current list of emails: <ul>{emailList}</ul>
                 </label></div><br />
             <div className="settings-section">
-                {/*TODO fix login */}
-                <button onClick={() => alert(`Frequency: ${frequency}\nEmails: ${emails}`)}
-                /*{() => apiService.login('FIXME', "FIXME")}*/
-                >Update settings</button>
+                <button onClick={() => alert(`Frequency: ${frequency}\nEmails: ${emails}`)} >Update settings</button>
                 {/*TODO change to apiService.setPreferences()*/}
             </div>
         </div>
