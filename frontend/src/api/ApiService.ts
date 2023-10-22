@@ -1,3 +1,4 @@
+import config from "../config/config.js";
 import TextStory from "../types/TextStory";
 
 class ApiService {
@@ -122,6 +123,6 @@ class ApiService {
 
 // Create and export a singleton instance of ApiService
 // TODO: set backend URI, change userId based on login. Maybe create this singleton on login?
-const backendUri = process.env.REACT_APP_BACKEND_URI || "http://127.0.0.1:5001/parakeet-5e1a9/us-central1/app";
+const backendUri = config.backendUri || "http://127.0.0.1:5001/parakeet-5e1a9/us-central1/app";
 const apiService = new ApiService(backendUri);
 export default apiService;
