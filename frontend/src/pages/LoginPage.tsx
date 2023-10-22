@@ -6,6 +6,7 @@ import LoginView from "../types/LoginView";
 import CuratorRegistration from "../components/login/CuratorRegistration";
 import PrincipalRegistration from "../components/login/PrincipalRegistration";
 import ReferredRegistration from "../components/login/ReferredRegistration";
+import '../styles/login.css';
 
 
 function LoginPage({ setAccountType }: { setAccountType: any }) {
