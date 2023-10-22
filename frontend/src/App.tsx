@@ -14,11 +14,11 @@ function App() {
 
     const [accountType, setAccountType] = React.useState<string>('');
 
-    function hasWriteAccess() {
+    function hasWriteAudioAccess() {
         return accountType === 'curator';
     }
 
-    function hasSettingsAccess() {
+    function hasReadSettingsAccess() {
         return accountType === 'principal' || accountType === 'curator';
     }
 
@@ -28,10 +28,10 @@ function App() {
                 <div className='navbar'>
                     <Link to={"/"} className='link'>Login</Link>
                     {/* <Link to={"/test"} className='link'>Testing</Link> */}
-                    <Link to={"/read"} className='link'>Read</Link>
-                    { hasWriteAccess() && <Link to={"/audio"} className='link'>Audio</Link>}
-                    { hasWriteAccess() && <Link to={"/write"} className='link'>Write</Link>}
-                    { hasSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
+                    { hasReadSettingsAccess() && <Link to={"/read"} className='link'>Read</Link>}
+                    { hasWriteAudioAccess() && <Link to={"/audio"} className='link'>Audio</Link>}
+                    { hasWriteAudioAccess() && <Link to={"/write"} className='link'>Write</Link>}
+                    { hasReadSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
                 </div>
                 <Routes>
                     <Route path='/' element={<LoginPage setAccountType={setAccountType} />} />

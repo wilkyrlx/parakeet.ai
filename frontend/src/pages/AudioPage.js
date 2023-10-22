@@ -66,8 +66,6 @@ const SpeechText = () => {
                         <p>{prompt}</p>
                     </div>
                     
-
-                    
                     <textarea id="response" placeholder="Your response..." value={transcript}></textarea>
                     <p>Microphone: {listening ? 'on' : 'off'}</p>
                     <div id='audio-buttons'>

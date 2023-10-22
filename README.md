@@ -39,6 +39,12 @@ The viewer is the person viewing the curator's responses. They can view the resp
 
 
 ## Roadmap
+We hope to expand this project in the future to provide a better service to our users as well as generate more robust data for the option of highly accurate Immortal AIs. 
+Going forward we hope to:
+1. Integrate chatbots that can continue the conversation with our curators.
+2. Add a video speedfriending social media platform for our curators to meet others and gather real likeness and personality data.
+3. Add an audio recorder that also records the actual voices during speech-to-text that will allow for the option of authentic voice replication if wanted.
+4. Add a feature that can quickly screen each audio recording non-invasively for signs of early onset dementia or Alzheimer's based on vocal patterns.
 
 
 
