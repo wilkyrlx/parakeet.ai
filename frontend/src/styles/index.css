@@ -94,3 +94,9 @@ body {
 .login-page button:hover {
     background-color: #0056b3;
 }
+
+.audio-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

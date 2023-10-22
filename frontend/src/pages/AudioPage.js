@@ -5,19 +5,23 @@ import { useEffect, useState } from "react"
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const SpeechText = () => {
-    const [isrecording, setisrecording] = useState(false)
-    const { transcript, resetTranscript } = useSpeechRecognition()
-        useEffect(() => {
-            if (isrecording){
-                SpeechRecognition.startListening({continuous: true})
-            }
-            console.log("listening starts")
-        }, [isrecording]);
+    const { transcript, listening, resetTranscript } = useSpeechRecognition()
 
-    function turnon(){
-        setisrecording(true)
+    const startListening = (e) => {
+        e.preventDefault();
+        SpeechRecognition.startListening({ continuous: true });
     };
 
+    const stopListening = (e) => {
+        e.preventDefault();
+        SpeechRecognition.stopListening();
+        console.log("off")
+    };
+
+    const reset = (e) => {
+        e.preventDefault();
+        resetTranscript();
+    };
 
     return (
         <div>
@@ -28,18 +32,13 @@ const SpeechText = () => {
                     <p>{prompt}</p>
                 </div>
                 <br></br>
-                <form>
-                    <textarea id="response" value={transcript}></textarea>
-                    <button onClick={() => turnon()}>Start Recording</button>
-                    <button onClick={() => resetTranscript}>clear text</button>
-                    <button
-                        onClick={(e) => {
-                            e.preventDefault();
-                            SpeechRecognition.stopListening()
-                            console.log("listening stopped")
-                        }}
-                    > Stop listening</button>
-                </form>
+                <textarea id="response" value={transcript}></textarea>
+                <p>Microphone: {listening ? 'on' : 'off'}</p>
+                <div id='audio-buttons'>
+                    <button onClick={startListening}>Start</button>
+                    <button onClick={stopListening}>Stop</button>
+                    <button onClick={reset}>Reset</button>
+                </div>
             </div>
         </div>
     )
