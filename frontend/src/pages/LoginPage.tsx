@@ -3,7 +3,7 @@ import apiService from "../api/ApiService"
 import StatefulInputBox from "../components/StatefulInputBox";
 
 
-function LoginPage() {
+function LoginPage({ setAccountType }: { setAccountType: any }) {
 
     const [userEmail, setUserEmail] = useState<string>('');
     const [userPassword, setUserPassword] = useState<string>('');
@@ -11,6 +11,16 @@ function LoginPage() {
     const [principalName, setPrincipalName] = useState<string>('');
     const [principalEmail, setPrincipalEmail] = useState<string>('');
     const [principalPassword, setPrincipalPassword] = useState<string>(''); 
+
+    function userLogin() {
+        apiService.login(userEmail, userPassword)
+        setAccountType('user')  // TODO: should get something from login request
+    }
+
+    function principalRegister() {
+        apiService.register(principalEmail, principalPassword)
+        setAccountType('principal')
+    }
 
     return (
         <div className="login-page">
@@ -23,7 +33,7 @@ function LoginPage() {
                 <label>
                     Password: <StatefulInputBox label="User Password" textValue={userPassword} setValue={setUserPassword} />
                 </label><br />
-                <button onClick={() => apiService.login(userEmail, userPassword)}>Login!</button>
+                <button onClick={() => userLogin()}>Login!</button>
             </div>
 
             {/* Principal register */}
@@ -39,7 +49,7 @@ function LoginPage() {
                     Password: <StatefulInputBox label="Principal Password" textValue={principalPassword} setValue={setPrincipalPassword} />
                 </label><br />
 
-                <button onClick={() => apiService.register(principalEmail, principalPassword)}>Register!</button>
+                <button onClick={() => principalRegister()}>Register!</button>
             </div>
         </div>
     )

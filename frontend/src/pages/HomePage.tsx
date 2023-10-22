@@ -1,6 +1,10 @@
 import apiService from "../api/ApiService"
 import TextStory from "../types/TextStory"
 
+
+/*
+    This is a dummy page. Not used in production
+*/
 function HomePage() {
 
     const currentDate = new Date();

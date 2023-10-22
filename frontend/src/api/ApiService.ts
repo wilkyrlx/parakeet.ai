@@ -17,7 +17,7 @@ class ApiService {
         return headers
     }
     
-
+    // Note: both register and login log the user in
     async register(email: string, password: string) {
         this.userId = email;    // set userId
 
@@ -41,6 +41,7 @@ class ApiService {
         }
     }
 
+    // Note: both register and login log the user in
     async login(email: string, password: string) {
         this.userId = email;
 
