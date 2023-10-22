@@ -9,10 +9,9 @@ import ReferredRegistration from "../components/login/ReferredRegistration";
 import '../styles/login.css';
 
 
-function LoginPage({ setAccountType, specialCuratorID }: { setAccountType: any, specialCuratorID: string }) {
+function LoginPage({ setAccountType, specialCuratorID, curatorID, setCuratorID }: { setAccountType: any, specialCuratorID: string, curatorID: string, setCuratorID: any }) {
 
     const [loginView, setLoginView] = useState<LoginView>(LoginView.LOGIN)
-    const [curatorID, setCuratorID] = useState<string>('')
 
     useEffect(() => {
         if (specialCuratorID !== 'NONE') {
@@ -24,7 +23,7 @@ function LoginPage({ setAccountType, specialCuratorID }: { setAccountType: any, 
 
     return (
         <div>
-            { loginView === LoginView.LOGIN && <DefaultLogin setAccountType={setAccountType} setLoginView={setLoginView} /> }     
+\            { loginView === LoginView.LOGIN && <DefaultLogin setAccountType={setAccountType} setLoginView={setLoginView} /> }     
             { loginView === LoginView.CURATOR_REGISTER && <CuratorRegistration setAccountType={setAccountType} setLoginView={setLoginView} setCuratorID={setCuratorID} /> }
             { loginView === LoginView.PRINCIPAL_REGISTER && <PrincipalRegistration setAccountType={setAccountType} setLoginView={setLoginView} curatorID={curatorID} /> }
             { loginView === LoginView.VIEWER_REGISTER && <ReferredRegistration setAccountType={setAccountType} setLoginView={setLoginView} curatorID={curatorID} /> }

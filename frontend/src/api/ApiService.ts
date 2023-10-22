@@ -119,6 +119,27 @@ class ApiService {
             console.error("getPrompt request failed: ", error);
         }
     }
+
+    async sendEmail(destinationEmail: string, linkCode: string) {
+        const body = {
+            destinationEmail: destinationEmail,
+            linkCode: linkCode,
+        };
+
+        try {
+            const response = await fetch(`${this.backendUri}/sendEmail`, {
+                method: 'POST',
+                headers: this.generateHeaders(),
+                body: JSON.stringify(body), // Stringify the data to JSON
+            });
+    
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error("sendEmail request failed: ", error);
+        }
+    }
 }
 
 // Create and export a singleton instance of ApiService

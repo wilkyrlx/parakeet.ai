@@ -1,8 +1,8 @@
 
 const config = {
     version: '0.0.1',
-    flavor: 'prod',
-    backendUri: 'https://us-central1-parakeet-5e1a9.cloudfunctions.net/app'
+    flavor: 'dev',
+    backendUri: 'http://127.0.0.1:5001/parakeet-5e1a9/us-central1/app'
 }
 
 export default config;

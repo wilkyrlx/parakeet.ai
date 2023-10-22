@@ -137,9 +137,9 @@ app.get("/getPrompt", (req, res) => {
     res.send({"prompt": prompt})
 })
 
-app.get("/sendEmail", async (req, res) => {
-    sendEmail("d", "h") // TODO: change this
-    res.send("email sent")
+app.post("/sendEmail", async (req, res) => {
+    sendEmail(req.body.destinationEmail, req.body.linkCode)
+    res.send({message: "email sent"})
 });
 
 

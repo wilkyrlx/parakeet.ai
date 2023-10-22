@@ -8,7 +8,7 @@ const mailjet = Mailjet.apiConnect(
 
 function sendEmail(destinationEmail: string, linkCode: string) {
 
-    const referralLink = "https://parakeet-5e1a9.web.app/"
+    const referralLink = `https://parakeet-5e1a9.web.app/?curator=${linkCode}`
     const rickRoll = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
     const request = mailjet

@@ -14,6 +14,7 @@ function App() {
 
     const [accountType, setAccountType] = useState<string>('');
     const [specialCuratorID, setSpecialCuratorID] = useState<string>('NONE');
+    const [curatorID, setCuratorID] = useState<string>('')
 
 
     function hasCuratorParameter() {
@@ -50,12 +51,12 @@ function App() {
                     { hasReadSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
                 </div>
                 <Routes>
-                    <Route path='/' element={<LoginPage setAccountType={setAccountType} specialCuratorID={specialCuratorID} />} />
+                    <Route path='/' element={<LoginPage setAccountType={setAccountType} specialCuratorID={specialCuratorID} curatorID={curatorID} setCuratorID={setCuratorID}/>} />
                     <Route path='/test' element={<HomePage />} />
                     <Route path='/read' element={<ReadPage />} />
                     <Route path='/audio' element={<AudioPage/>} />
                     <Route path='/write' element={<WritePage />} />
-                    <Route path='/settings' element={<SettingsPage {...dummySettings}/>} />
+                    <Route path='/settings' element={<SettingsPage settings={dummySettings} curatorID={curatorID} />} />
                 </Routes>
             </BrowserRouter>
         </div>

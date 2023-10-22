@@ -3,12 +3,20 @@ import apiService from "../api/ApiService"
 import Settings from "../types/Settings"
 import '../styles/settings.css';
 
-function SettingsPage(settings: Settings) {
+function SettingsPage({ settings, curatorID }: { settings: Settings, curatorID: string }) {
     const [frequency, setFrequency] = useState('');
     const [newEmail, setNewEmail] = useState('');
     const [emails, setEmails] = useState<string[]>([]);
     //const emailList = settings.emails.map((email: string) => <li>{email}</li>)
     const emailList = emails.map((email: string) => <li>{email}</li>)
+
+    function handleNewEmail() {
+        if (newEmail) {
+            setEmails([...emails, newEmail]);
+            setNewEmail('');
+            apiService.sendEmail(newEmail, curatorID);
+        }
+    }
 
     return (
         <div id="settings-page" className="settings-page">
@@ -27,12 +35,7 @@ function SettingsPage(settings: Settings) {
                         value={newEmail}
                         onChange={(ev) => setNewEmail(ev.target.value)} />
                 </label>
-                <button onClick={() => {
-                    if (newEmail) {
-                        setEmails([...emails, newEmail]);
-                        setNewEmail('');
-                    }
-                }}>Add</button>
+                <button onClick={() => { handleNewEmail(); }}>Add</button>
                 <br /><br />
                 <label>
                     Current list of emails: <ul>{emailList}</ul>
