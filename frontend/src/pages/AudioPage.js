@@ -67,7 +67,7 @@ const SpeechText = () => {
                     </div>
                     
 
-                    <br></br>
+                    
                     <textarea id="response" placeholder="Your response..." value={transcript}></textarea>
                     <p>Microphone: {listening ? 'on' : 'off'}</p>
                     <div id='audio-buttons'>
@@ -78,9 +78,13 @@ const SpeechText = () => {
                         <button id="stop" onClick={stopListening}>Stop </button>
                         <br></br><br></br>
                         <button id="save" onClick={stopListening}>Send </button>
+                        <br></br><br></br><br></br><br></br>
+                        
                     </div>
                 </div>
+                
             </div>
+            
         )
     }
     else {

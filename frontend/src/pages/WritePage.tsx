@@ -53,6 +53,7 @@ function WritePage() {
           <button id="submit-button" onClick={() => submitStory()}>
             Submit
           </button>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
         </div>
       </div>
     );
