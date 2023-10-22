@@ -18,12 +18,15 @@ class ApiService {
     }
     
     // Note: both register and login log the user in
-    async register(email: string, password: string) {
+    async register(email: string, password: string, accountType: string) {
         this.userId = email;    // set userId
 
+        // TODO: change accountType and curatorID
         const body = {
             email: email,
             password: password,
+            accountType: accountType,
+            curatorID: email,
         };
 
         try {
@@ -35,7 +38,8 @@ class ApiService {
     
             const data = await response.json();
             console.log(data);
-            return data;
+            const accountType = data.accountType;
+            return accountType; 
         } catch (error) {
             console.error("register request failed: ", error);   
         }
@@ -58,7 +62,8 @@ class ApiService {
     
             const data = await response.json();
             console.log(data);
-            return data;   
+            const accountType = data.accountType;
+            return accountType; 
         } catch (error) {
             console.error("register request failed: ", error);   
         }

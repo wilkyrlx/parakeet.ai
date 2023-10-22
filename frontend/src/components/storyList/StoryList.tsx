@@ -1,4 +1,4 @@
-import TextStory from "../types/TextStory";
+import TextStory from "../../types/TextStory";
 import StoryListItem from "./StoryListItem";
 
 function StoryList({stories }: { stories: TextStory[] }) {

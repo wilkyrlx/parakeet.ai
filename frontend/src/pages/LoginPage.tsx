@@ -12,14 +12,16 @@ function LoginPage({ setAccountType }: { setAccountType: any }) {
     const [principalEmail, setPrincipalEmail] = useState<string>('');
     const [principalPassword, setPrincipalPassword] = useState<string>(''); 
 
-    function userLogin() {
-        apiService.login(userEmail, userPassword)
-        setAccountType('user')  // TODO: should get something from login request
+    async function userLogin() {
+        const accountType = await apiService.login(userEmail, userPassword)
+        setAccountType(accountType)  // TODO: should get something from login request
+        console.log(accountType)
     }
 
-    function principalRegister() {
-        apiService.register(principalEmail, principalPassword)
-        setAccountType('principal')
+    async function principalRegister() {
+        const accountType = await apiService.register(principalEmail, principalPassword, "principal")
+        setAccountType(accountType)
+        console.log(accountType)
     }
 
     return (

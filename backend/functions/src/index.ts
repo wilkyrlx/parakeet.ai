@@ -37,15 +37,23 @@ app.get("/", (req: Request, res: Response) => {
 // Note: v1 complete
 app.post("/register", (req: Request, res: Response) => {
     const userID = getUserID(req)
-    const email = req.body.email;
-    const password = req.body.password;
-    const data = { "email": email, "password": password }
+    
+    const data: any = { 
+        "email": req.body.email, 
+        "password": req.body.password,
+        "accountType": req.body.accountType
+    }
+
+    const curatorID = req.body.curatorID
+    if (curatorID !== undefined) {
+        data["curatorID"] = curatorID
+    }
 
     db.collection(collectionID).doc(userID).collection('login').add(data)
         .catch((error) => {
             logger.error("Error adding document: ", error);
         });
-    res.send({ message: "Registration Successful" })
+    res.send({ message: "Registration Successful", accountType: data.accountType })
 });
 
 // Note: v1 complete
@@ -63,9 +71,9 @@ app.post('/login', (req, res) => {
                 const data = firstDocument.data();
                 console.log('First document data:', data);
                 if (data.password === password) {
-                    res.send({ message: "Login Successful" })
+                    res.send({ message: "Login Successful", accountType: data.accountType })
                 } else {
-                    res.send({ message: "Login Failed" })
+                    res.send({ message: "Login Failed", accountType: "" })
                 }
             } 
         });

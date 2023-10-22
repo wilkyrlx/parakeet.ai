@@ -1,4 +1,4 @@
-import TextStory from "../types/TextStory";
+import TextStory from "../../types/TextStory";
 
 function convertDate(d: Date): String {
     const monthNames = [

@@ -12,6 +12,14 @@ function App() {
 
     const [accountType, setAccountType] = React.useState<string>('');
 
+    function hasWriteAccess() {
+        return accountType === 'curator';
+    }
+
+    function hasSettingsAccess() {
+        return accountType === 'principal' || accountType === 'curator';
+    }
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -19,8 +27,8 @@ function App() {
                     <Link to={"/"} className='link'>Login</Link>
                     <Link to={"/test"} className='link'>Testing</Link>
                     <Link to={"/read"} className='link'>Read</Link>
-                    <Link to={"/write"} className='link'>Write</Link>
-                    <Link to={"/settings"} className='link'>Settings</Link>
+                    { hasWriteAccess() && <Link to={"/write"} className='link'>Write</Link> }
+                    { hasSettingsAccess() && <Link to={"/settings"} className='link'>Settings</Link> }
                 </div>
                 <Routes>
                     <Route path='/' element={<LoginPage setAccountType={setAccountType} />} />

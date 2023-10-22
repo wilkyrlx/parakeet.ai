@@ -1,8 +1,8 @@
 import TextStory from "../types/TextStory";
-import StoryList from "../components/StoryList"
+import StoryList from "../components/storyList/StoryList"
 import { useEffect, useState } from "react";
 import apiService from "../api/ApiService";
-import NoStories from "../components/NoStories";
+import NoStories from "../components/storyList/NoStories";
 
 
 function ReadPage() {
