@@ -27,7 +27,7 @@ function App() {
             <BrowserRouter>
                 <div className='navbar'>
                     <Link to={"/"} className='link'>Login</Link>
-                    <Link to={"/test"} className='link'>Testing</Link>
+                    {/* <Link to={"/test"} className='link'>Testing</Link> */}
                     <Link to={"/read"} className='link'>Read</Link>
                     { hasWriteAccess() && <Link to={"/audio"} className='link'>Audio</Link>}
                     { hasWriteAccess() && <Link to={"/write"} className='link'>Write</Link>}

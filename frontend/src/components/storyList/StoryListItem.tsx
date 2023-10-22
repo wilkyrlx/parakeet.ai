@@ -5,7 +5,7 @@ function convertDate(d: Date): String {
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
-    return `${monthNames[d.getMonth()]} ${d.getDay()}, ${d.getFullYear()}`
+    return `${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 }
 
 function StoryListItem({ story }: { story: TextStory }) {
