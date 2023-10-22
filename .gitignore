@@ -1,3 +1,4 @@
 node_modules
 lib
-firebaseConfigSecret.ts
+secret/
+!secret/PUT_SECRET_HERE.txt

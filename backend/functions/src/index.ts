@@ -5,6 +5,7 @@ import * as functions from "firebase-functions";
 import * as firebase from "firebase-admin";
 import firebaseConfigSecret from "./secret/firebaseConfigSecret";
 import cors from "cors";
+import sendEmail from "./mailingService";
 
 const firebaseConfig = firebaseConfigSecret
 firebase.initializeApp(firebaseConfig);
@@ -135,5 +136,11 @@ app.get("/getPrompt", (req, res) => {
     ]
     res.send({"prompt": prompt})
 })
+
+app.get("/sendEmail", async (req, res) => {
+    sendEmail()
+    res.send("email sent")
+});
+
 
 exports.app = functions.https.onRequest(app);
