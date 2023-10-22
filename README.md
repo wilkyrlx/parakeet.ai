@@ -1,7 +1,13 @@
 # Parakeet.ai
 Parakeet.ai is our submission for HackHarvard 2023! You can read more in our [devpost linked here!](https://devpost.com/software/parakeet-ai).
-our logo:
-![parakeet.ai logo](https://github.com/wilkyrlx/parakeet.ai/blob/main/shared/parakeet.png?raw=true)
+
+<div style="display: flex; align-items: center;">
+    <img src="https://github.com/wilkyrlx/parakeet.ai/blob/main/shared/parakeet.png?raw=true" width="150" alt="Parakeet Image" style="margin-right: 10px;">
+    <blockquote style="margin: 0; font-style: italic;">
+        Pear the Parakeet
+    </blockquote>
+</div>
+
 
 ## Inspiration
 Our project was inspired by CareYaya's ImmortalAI project, which seeks to create a digital avatar of a person that can be used to interact with their loved ones after they pass away. An issue we identified was that the process of collecting enough rich, personal data is a difficult and boring process if done incorrectly. Our goal was to design an application that would make the process of collecting data as easy and fun as possible for the elderly. 
